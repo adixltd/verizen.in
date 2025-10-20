@@ -127,16 +127,16 @@ header {
 
 /* INDIVIDUAL BACKGROUND IMAGE CALLS (Link to the files you uploaded) */
 .service-card.automation .card-image-placeholder {
-    background-image: url('pump-automation-real.jpg');
+    background-image: url('pump-automation-real.png');
 }
 .service-card.treatment .card-image-placeholder {
-    background-image: url('water-treatment-real.jpg');
+    background-image: url('water-treatment-real.png');
 }
 .service-card.pools .card-image-placeholder {
-    background-image: url('swimming-pool-real.jpg');
+    background-image: url('swimming-pool-real.png');
 }
 .service-card.etp .card-image-placeholder {
-    background-image: url('etp-real.jpg');
+    background-image: url('etp-real.png');
 }
 
 /* 4. FOOTER */
