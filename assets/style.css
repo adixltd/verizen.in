@@ -28,13 +28,17 @@ header nav {
     color: #11456D;
     text-decoration: none;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 0;
 }
 /* Social Media Icons in Header */
 .social-icons {
     display: flex;
     align-items: center;
-    /* Removed margin-left/margin-top to let 'nav' control the stack */
+    /* CRITICAL CHANGE: Set a fixed width to match the phone number's space */
+    width: 150px; /* Adjust this width slightly if needed, but 150px should be close */
+    /* Spread the icons across the 150px width */
+    justify-content: space-between; 
+    margin-top: 5px; /* Add a small gap between number and icons */
 }
 
 .social-icons a {
