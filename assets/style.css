@@ -34,21 +34,28 @@ header nav {
 .social-icons {
     display: flex;
     align-items: center;
-    /* CRITICAL CHANGE: Set a fixed width to match the phone number's space */
-    width: 200px; /* Adjust this width slightly if needed, but 150px should be close */
-    /* Spread the icons across the 150px width */
+    width: 170px; 
     justify-content: space-between; 
-    margin-top: 5px; /* Add a small gap between number and icons */
+    margin-top: 5px;
+    padding-right: 5px; /* Tweak the padding to visually align with the number */
 }
 
 .social-icons a {
     color: #11456D;
     font-size: 1.2em;
-    /* Changed margin to padding for precise control */
-    padding: 0 4px; 
     transition: color 0.3s ease;
-    /* Ensure display is block or inline-block for proper sizing */
-    display: inline-block;
+    display: flex; /* CRITICAL: Use flexbox to center the icon inside */
+    align-items: center; /* Vertically center the icon */
+    justify-content: center; /* Horizontally center the icon */
+    height: 20px; /* Set a uniform height for the clickable area */
+    width: 20px;  /* Set a uniform width for the clickable area */
+    padding: 0; /* Remove padding since height/width are defined */
+    margin: 0 5px; /* Adjust spacing between icons */
+}
+.social-icons i {
+    /* Ensures the icon sits perfectly on the center line */
+    vertical-align: middle; 
+    line-height: 1; /* Eliminates extra vertical space */
 }
 /*.social-icons a:first-child {
     margin-left: 0;
