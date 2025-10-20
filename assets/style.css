@@ -22,7 +22,7 @@ header nav {
     width: auto;
 }
 .logo {
-    height: 108px; /* Increased logo size */
+    height: 90px; /* Increased logo size */
 }
 .contact-link {
     color: #11456D;
@@ -34,10 +34,10 @@ header nav {
 .social-icons {
     display: flex;
     align-items: center;
-    width: 160px; 
+    width: 150px; 
     justify-content: space-between; 
     margin-top: 5px;
-    padding-right: 5px; /* Tweak the padding to visually align with the number */
+    padding-right: 0px; /* Tweak the padding to visually align with the number */
 }
 
 .social-icons a {
