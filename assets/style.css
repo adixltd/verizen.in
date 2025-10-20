@@ -107,3 +107,170 @@ footer {
         flex-basis: 100%; /* Stack the cards vertically on mobile */
     }
 }
+/* GLOBAL STYLES & FONT */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Dark gray for body text */
+    margin: 0;
+    line-height: 1.6;
+}
+/* 1. HEADER STYLES */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    background-color: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.logo {
+    height: 60px; /* Increased logo size */
+}
+.contact-link {
+    color: #11456D;
+    text-decoration: none;
+    font-weight: 700;
+}
+/* Social Media Icons in Header */
+.social-icons {
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+}
+.social-icons a {
+    color: #11456D;
+    font-size: 1.5em;
+    margin: 0 8px;
+    transition: color 0.3s ease;
+}
+.social-icons a:hover {
+    color: #4CAF50;
+}
+/* 2. HERO SECTION */
+.hero {
+    background-color: #F8F8F8;
+    padding: 80px 5%;
+    text-align: center;
+}
+.hero h1 {
+    font-size: 3em;
+    color: #11456D;
+    margin-bottom: 10px;
+}
+.accent-text {
+    color: #4CAF50;
+}
+.tagline {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #666;
+}
+/* Call-to-Action Buttons */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.cta-button.primary {
+    background-color: #4CAF50;
+    color: white;
+}
+.cta-button.secondary {
+    background-color: transparent;
+    color: #11456D;
+    border: 2px solid #11456D;
+}
+/* 3. SERVICES SECTION */
+.services {
+    padding: 60px 5%;
+    text-align: center;
+}
+.services h2 {
+    color: #11456D;
+    margin-bottom: 40px;
+}
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-fit for 4 items */
+    gap: 30px;
+    justify-items: center;
+}
+.service-card {
+    /* Updated Card Style */
+    flex-basis: auto;
+    width: 100%;
+    max-width: 300px; 
+    border: none; /* Remove border */
+    border-radius: 8px;
+    overflow: hidden; /* Crucial for image corners */
+    text-align: left; /* Text remains left-aligned inside the card */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Stronger, more professional shadow */
+    padding: 0;
+}
+.service-card h3 {
+    text-align: left;
+    color: #11456D;
+    border-bottom: 2px solid #4CAF50;
+    padding: 0 20px 10px 20px; /* Padding for text below the image */
+    margin: 15px 0 10px 0; 
+}
+.service-card p {
+    padding: 0 20px 20px 20px; /* Padding for description */
+    margin: 0;
+    font-size: 0.95em;
+}
+
+/* IMAGE PLACEHOLDER STYLING (Crucial for Professional Look) */
+.card-image-placeholder {
+    height: 180px; /* Set a fixed height for the image area */
+    background-size: cover; /* Ensures image covers the area */
+    background-position: center center; /* Centers the image */
+    background-repeat: no-repeat;
+    /* Optional: Small overlay to make text pop if we used text over the image */
+}
+
+/* INDIVIDUAL BACKGROUND IMAGE CALLS (Link to the files you uploaded) */
+.service-card.automation .card-image-placeholder {
+    background-image: url('pump-automation-real.jpg');
+}
+.service-card.treatment .card-image-placeholder {
+    background-image: url('water-treatment-real.jpg');
+}
+.service-card.pools .card-image-placeholder {
+    background-image: url('swimming-pool-real.jpg');
+}
+.service-card.etp .card-image-placeholder {
+    background-image: url('etp-real.jpg');
+}
+
+/* 4. FOOTER */
+footer {
+    background-color: #11456D;
+    color: white;
+    text-align: center;
+    padding: 20px 5%;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+    .header nav {
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .social-icons {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+}
