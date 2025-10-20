@@ -35,7 +35,7 @@ header nav {
     display: flex;
     align-items: center;
     /* CRITICAL CHANGE: Set a fixed width to match the phone number's space */
-    width: 150px; /* Adjust this width slightly if needed, but 150px should be close */
+    width: 200px; /* Adjust this width slightly if needed, but 150px should be close */
     /* Spread the icons across the 150px width */
     justify-content: space-between; 
     margin-top: 5px; /* Add a small gap between number and icons */
