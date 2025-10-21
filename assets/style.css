@@ -34,7 +34,7 @@ header nav {
 .social-icons {
     display: flex;
     align-items: center;
-    width: 140px; 
+    width: 130px; 
     justify-content: space-between; 
     margin-top: 5px;
     padding-right: 0px; /* Tweak the padding to visually align with the number */
