@@ -593,42 +593,58 @@ footer {
     display: none; 
 }
 
+/* --- MOBILE HEADER OPTIMIZATION (UPDATED) --- */
+
+/* Default: Hide the mobile call button on Desktop */
+.mobile-call-btn {
+    display: none; 
+}
+
 /* Mobile Rules (Screens smaller than 768px) */
 @media (max-width: 768px) {
     
-    /* 1. Show the Mobile Call Button */
+    /* 1. Make the container Flexbox so items align perfectly */
+    .nav-container {
+        display: flex;
+        justify-content: space-between; /* Pushes Logo Left, Button Right */
+        align-items: center; /* Vertically centers them */
+        padding: 0 20px;
+        width: 100%;
+    }
+
+    /* 2. Fix the Logo - Remove the double text */
+    .logo-text {
+        display: none; /* Hides the text "VARIZEN" because it's already in your logo image */
+    }
+
+    .logo-img {
+        height: 55px; /* Perfect size for mobile */
+        width: auto;
+        object-fit: contain;
+    }
+
+    /* 3. The "Call Us" Pill Button */
     .mobile-call-btn {
         display: flex;
         align-items: center;
-        gap: 8px;
-        background: rgba(0, 78, 146, 0.1); /* Light Blue Background */
-        color: var(--primary);
+        gap: 6px;
+        background-color: #004e92; /* Solid Blue Background */
+        color: white !important;   /* White Text */
         padding: 8px 16px;
-        border-radius: 50px;
+        border-radius: 50px;       /* Pill Shape */
         text-decoration: none;
-        font-weight: 700;
-        font-size: 0.9rem;
-        border: 1px solid var(--primary);
-        transition: 0.3s;
+        font-weight: 600;
+        font-size: 0.85rem;
+        box-shadow: 0 4px 10px rgba(0, 78, 146, 0.2); /* Soft Shadow */
+        transition: 0.2s;
+    }
+
+    .mobile-call-btn i {
+        font-size: 0.8rem; /* Make the phone icon slightly smaller */
     }
 
     .mobile-call-btn:active {
-        background: var(--primary);
-        color: white;
-    }
-
-    /* 2. Fix the Logo size for Mobile to prevent crowding */
-    .logo-img {
-        height: 50px; /* Slightly smaller on mobile to fit the button */
-    }
-
-    .logo-text {
-        font-size: 1rem; /* Slightly smaller text */
-    }
-
-    /* 3. Ensure the container spreads items (Logo Left, Button Right) */
-    .nav-container {
-        justify-content: space-between;
-        padding: 0 15px; /* Add a little breathing room on the sides */
+        transform: scale(0.95); /* Shrinks slightly when tapped */
+        background-color: #003366;
     }
 }
