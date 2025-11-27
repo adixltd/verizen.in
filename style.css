@@ -593,13 +593,6 @@ footer {
     display: none; 
 }
 
-/* --- MOBILE HEADER OPTIMIZATION (UPDATED) --- */
-
-/* Default: Hide the mobile call button on Desktop */
-.mobile-call-btn {
-    display: none; 
-}
-
 /* Mobile Rules (Screens smaller than 768px) */
 @media (max-width: 768px) {
     
@@ -647,4 +640,10 @@ footer {
         transform: scale(0.95); /* Shrinks slightly when tapped */
         background-color: #003366;
     }
+
+    /* 4. Adjust Hero Text on Mobile so it doesn't look squashed */
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
 }
