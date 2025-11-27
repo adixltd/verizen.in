@@ -532,6 +532,55 @@ footer {
     margin-bottom: 10px;
     font-size: 1.5rem;
 }
+/* --- FLOATING WHATSAPP BUTTON --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25d366; /* WhatsApp Green */
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #1ebe57;
+    transform: scale(1.1);
+}
+
+/* Pulse Animation to attract attention */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* --- NAVBAR PHONE STYLING --- */
+.nav-phone {
+    font-weight: 600;
+    color: var(--primary) !important;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
+}
+
+/* Hide the navbar phone number on very small screens to save space */
+@media (max-width: 900px) {
+    .nav-phone {
+        display: none;
+    }
+}
 
 .roi-box strong {
     color: #ffd700; /* Gold color for "14 months" */
