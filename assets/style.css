@@ -1,227 +1,322 @@
-/* GLOBAL STYLES & FONT */
-body {
-    font-family: 'Roboto', sans-serif;
-    color: #333; /* Dark gray for body text */
+:root {
+    --primary: #004e92;
+    --secondary: #56ab2f;
+    --dark: #1a1a1a;
+    --light: #f4f7f6;
+    --white: #ffffff;
+    --gradient: linear-gradient(135deg, #004e92 0%, #56ab2f 100%);
+}
+
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--dark);
     line-height: 1.6;
 }
-/* 1. HEADER STYLES */
-header {
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+nav {
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+}
+
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 5%;
-    background-color: white;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-/* NEW: Adjust the navigation block on the right */
-header nav {
-    display: flex;
-    flex-direction: column; /* Stack the phone number and social icons vertically */
-    align-items: flex-end; /* Align all items to the right edge */
-    width: auto;
-}
+
 .logo {
-    height: 90px; /* Increased logo size */
-}
-.contact-link {
-    color: #11456D;
-    text-decoration: none;
-    font-weight: 700;
-    margin-bottom: 0;
-}
-/* Social Media Icons in Header */
-.social-icons {
     display: flex;
     align-items: center;
-    width: 130px; 
-    justify-content: space-between; 
-    margin-top: 5px;
-    padding-right: 0px; /* Tweak the padding to visually align with the number */
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--primary);
 }
 
-.social-icons a {
-    color: #11456D;
-    font-size: 1.2em;
-    transition: color 0.3s ease;
-    display: flex; /* CRITICAL: Use flexbox to center the icon inside */
-    align-items: center; /* Vertically center the icon */
-    justify-content: center; /* Horizontally center the icon */
-    height: 20px; /* Set a uniform height for the clickable area */
-    width: 20px;  /* Set a uniform width for the clickable area */
-    padding: 0; /* Remove padding since height/width are defined */
-    margin: 0 5px; /* Adjust spacing between icons */
+.logo-img {
+    height: 40px; /* Adjust based on your logo file */
 }
-.social-icons i {
-    /* Ensures the icon sits perfectly on the center line */
-    vertical-align: middle; 
-    line-height: 1; /* Eliminates extra vertical space */
-}
-/*.social-icons a:first-child {
-    margin-left: 0;
-}*/
-.social-icons a:hover {
-    color: #4CAF50;
-}
-/* 2. HERO SECTION */
-.hero {
-    background-color: #F8F8F8;
-    padding: 80px 5%;
-    text-align: center;
-}
-.hero h1 {
-    font-size: 3em;
-    color: #11456D;
-    margin-bottom: 10px;
-}
-.accent-text {
-    color: #4CAF50;
-}
-.tagline {
-    font-size: 1.2em;
-    font-weight: 700;
-    margin-bottom: 25px;
-    color: #666;
-}
-/* Call-to-Action Buttons */
-.cta-button {
-    display: inline-block;
-    padding: 12px 30px;
-    margin: 10px;
-    text-decoration: none;
-    font-weight: 700;
-    border-radius: 5px;
-    transition: background-color 0.3s;
-}
-.cta-button.primary {
-    background-color: #4CAF50;
-    color: white;
-}
-.cta-button.secondary {
-    background-color: transparent;
-    color: #11456D;
-    border: 2px solid #11456D;
-}
-/* 3. SERVICES SECTION */
-.services {
-    padding: 60px 5%;
-    text-align: center;
-}
-.services h2 {
-    color: #11456D;
-    margin-bottom: 40px;
-}
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Auto-fit for 4 items */
+
+.nav-links {
+    list-style: none;
+    display: flex;
     gap: 30px;
-    justify-items: center;
+    align-items: center;
 }
-.service-card {
-    /* Updated Card Style */
-    flex-basis: auto;
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+}
+
+/* Buttons */
+.btn-primary {
+    background: var(--primary);
+    color: white !important;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    padding: 10px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    padding-top: 140px;
+    padding-bottom: 80px;
+    background: radial-gradient(circle at top right, #eef9f0 0%, #fff 40%);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.hero-text {
+    flex: 1;
+    padding-right: 50px;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: #0f172a;
+}
+
+.highlight {
+    background: var(--gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.badge {
+    background: #e0f2fe;
+    color: var(--primary);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.cta-group {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+/* CSS Phone Mockup (Pure CSS Art) */
+.phone-mockup {
+    width: 300px;
+    height: 600px;
+    background: #000;
+    border-radius: 40px;
+    padding: 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    position: relative;
+    border: 4px solid #333;
+}
+
+.screen {
+    background: white;
     width: 100%;
-    max-width: 300px; 
-    border: none; /* Remove border */
+    height: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    background: var(--primary);
+    color: white;
+    padding: 30px 20px 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.water-circle {
+    width: 180px;
+    height: 180px;
+    border: 5px solid #eee;
+    border-radius: 50%;
+    margin: 40px auto;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 60%;
+    background: rgba(0, 78, 146, 0.6);
+    animation: wave 4s infinite linear;
+}
+
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.app-stats {
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.stat-box {
+    background: #f4f7f6;
+    padding: 15px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.alert-box {
+    background: #dcfce7;
+    color: #166534;
+    margin: 20px;
+    padding: 10px;
     border-radius: 8px;
-    overflow: hidden; /* Crucial for image corners */
-    text-align: left; /* Text remains left-aligned inside the card */
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Stronger, more professional shadow */
-    padding: 0;
-}
-.service-card h3 {
-    text-align: left;
-    color: #11456D;
-    border-bottom: 2px solid #4CAF50;
-    padding: 0 20px 10px 20px; /* Padding for text below the image */
-    margin: 15px 0 10px 0; 
-}
-.service-card p {
-    padding: 0 20px 20px 20px; /* Padding for description */
-    margin: 0;
-    font-size: 0.95em;
+    text-align: center;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
-/* IMAGE PLACEHOLDER STYLING (Crucial for Professional Look) */
-.card-image-placeholder {
-    height: 180px; /* Set a fixed height for the image area */
-    background-size: cover; /* Ensures image covers the area */
-    background-position: center center; /* Centers the image */
-    background-repeat: no-repeat;
-    /* Optional: Small overlay to make text pop if we used text over the image */
-}
-
-/* INDIVIDUAL BACKGROUND IMAGE CALLS (Link to the files you uploaded) */
-.service-card.automation .card-image-placeholder {
-    background-image: url('pump-automation-real.png');
-}
-.service-card.treatment .card-image-placeholder {
-    background-image: url('water-treatment-real.png');
-}
-.service-card.pools .card-image-placeholder {
-    background-image: url('swimming-pool-real.png');
-}
-.service-card.etp .card-image-placeholder {
-    background-image: url('etp-real.png');
-}
-
-/* 4. FOOTER */
-footer {
-    background-color: #11456D;
+/* Ticker */
+.ticker-section {
+    background: var(--dark);
     color: white;
     text-align: center;
-    padding: 20px 5%;
-    font-size: 0.9em;
+    padding: 40px 0;
 }
 
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .hero h1 {
-        font-size: 2em;
-    }
-    .header nav {
-        flex-direction: column;
-        align-items: flex-end;
-    }
-    .social-icons {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-    .service-grid {
-        grid-template-columns: 1fr;
-    }
+.ticker-section h2 {
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--secondary);
+    font-family: monospace;
 }
-/* FLOATING WHATSAPP BUTTON STYLES */
-.whatsapp-float {
-    position: fixed; /* Ensures it stays in place when scrolling */
-    bottom: 20px; /* Distance from the bottom edge */
-    right: 20px; /* Distance from the left edge */
-    width: 60px; /* Suitable size */
+
+/* Features */
+.features {
+    padding: 100px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+    border: 1px solid #eee;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary);
+}
+
+.card .icon {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    background: #e0f2fe;
+    width: 60px;
     height: 60px;
-    background-color: #25D366; /* Official WhatsApp Green */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+/* Industrial */
+.split-layout {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 80px 20px;
+}
+
+.industrial-box {
+    width: 100%;
+    height: 300px;
+    background: #2c3e50;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
-    border-radius: 50%; /* Makes it perfectly circular */
     text-align: center;
-    font-size: 30px; /* Icon size */
-    line-height: 60px; /* Vertically centers the icon */
-    z-index: 1000; /* Ensures it floats above all other content */
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Professional subtle shadow */
-    transition: transform 0.3s ease-in-out;
 }
 
-.whatsapp-float:hover {
-    /* Subtle hover effect */
-    transform: scale(1.05); 
-}
-
-/* Optional: Mobile-specific adjustments for smaller screens */
+/* Responsive */
 @media (max-width: 768px) {
-    .whatsapp-float {
-        bottom: 15px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 25px;
-        line-height: 50px;
+    .hero-content, .split-layout {
+        flex-direction: column;
+    }
+    .hero-text {
+        padding-right: 0;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    .cta-group {
+        justify-content: center;
+    }
+    .nav-links {
+        display: none; /* Hide nav on mobile for simplicity for now */
     }
 }
