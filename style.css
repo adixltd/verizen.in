@@ -55,6 +55,7 @@ nav {
 
 .logo-img {
     height: 100px; /* Adjust based on your logo file */
+    width: auto;
 }
 
 .nav-links {
