@@ -446,7 +446,7 @@ footer {
 .right-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Pushes content to the right */
+    align-items: center;
 }
 
 .center-text {
