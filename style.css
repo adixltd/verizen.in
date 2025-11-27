@@ -354,35 +354,127 @@ nav {
 }
 
 /* Fix for Footer Layout to make it cleaner */
+/* --- FOOTER REDESIGN --- */
 footer {
-    background: #0f172a; /* Darker, more premium background */
+    background: #0f172a; /* Deep Navy Blue */
     color: white;
-    padding: 60px 0 20px;
+    padding-top: 60px;
+    margin-top: auto;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    align-items: flex-start;
     padding-bottom: 40px;
-    margin-bottom: 20px;
+    flex-wrap: wrap; /* Wraps on mobile */
+    gap: 30px;
 }
 
-.footer-links a {
-    color: #94a3b8;
-    margin-left: 20px;
+.footer-col {
+    flex: 1; /* Each column takes equal space */
+    min-width: 250px;
+}
+
+.footer-col h3 {
+    color: var(--secondary); /* Green Brand Color */
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.footer-col h4 {
+    color: #94a3b8; /* Soft Grey for headings */
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.address-text {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+/* Email Styling */
+.email-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.05);
+    padding: 10px 20px;
+    border-radius: 50px;
+}
+
+.email-link:hover {
+    background: var(--primary);
+    transform: translateY(-2px);
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Makes them circular */
     text-decoration: none;
     transition: 0.3s;
+    font-size: 1.1rem;
 }
 
-.footer-links a:hover {
-    color: var(--secondary);
+.social-icons a:hover {
+    background: var(--secondary); /* Brand Green on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(86, 171, 47, 0.3);
 }
-/* IMPACT SECTION STYLES */
-.impact-section {
-    padding: 100px 0;
-    background: #f9fbfb; /* Very light grey/blue */
+
+/* Alignments */
+.right-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Pushes content to the right */
+}
+
+.center-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Copyright Bar */
+.copyright-bar {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Mobile Responsiveness for Footer */
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+    }
+    
+    .right-text, .center-text {
+        align-items: center;
+    }
 }
 
 .impact-grid {
