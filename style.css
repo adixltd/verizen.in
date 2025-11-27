@@ -287,7 +287,28 @@ nav {
     gap: 50px;
     padding: 80px 20px;
 }
+/* ADD THIS TO FIX THE SQUASHED TEXT */
+.text-side {
+    flex: 1; /* This forces the text to take up 50% of the space */
+    min-width: 300px; /* Prevents it from getting too small */
+}
 
+.visual-side {
+    flex: 1; /* This forces the image container to take up the other 50% */
+    display: flex;
+    justify-content: center;
+}
+
+.check-list {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.check-list li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: var(--dark);
+}
 .industrial-box {
     width: 100%;
     height: 300px;
