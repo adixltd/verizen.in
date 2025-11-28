@@ -275,32 +275,54 @@
     }
     </script>
 
-  <script>
+ <script>
     // 1. Mobile Menu Toggle
     function toggleMenu() {
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
     }
 
-    // 2. Active Menu Highlighter (Scroll Spy)
-    window.addEventListener('scroll', () => {
-        let sections = document.querySelectorAll('section');
-        let navLinks = document.querySelectorAll('.nav-links a');
-        
-        sections.forEach(sec => {
-            let top = window.scrollY;
-            let offset = sec.offsetTop - 150; // Offset for fixed header
-            let height = sec.offsetHeight;
-            let id = sec.getAttribute('id');
+    // 2. Active Menu Highlighter (Dual Logic: URL + Scroll)
+    document.addEventListener("DOMContentLoaded", function() {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const currentPath = window.location.pathname;
+
+        // Logic A: Highlight based on Filename (Home / About Us)
+        navLinks.forEach(link => {
+            // Clears any hardcoded 'active-link' classes from HTML first
+            link.classList.remove('active-link'); 
             
-            if(top >= offset && top < offset + height) {
-                navLinks.forEach(links => {
-                    links.classList.remove('active');
-                    let target = document.querySelector('.nav-links a[href*=' + id + ']');
-                    if(target) target.classList.add('active');
-                });
+            // Checks if the link matches the current page URL
+            if (link.getAttribute('href') === 'index.html' && (currentPath.endsWith('index.html') || currentPath.endsWith('/'))) {
+                link.classList.add('active-link');
+            }
+            if (link.getAttribute('href') === 'about.html' && currentPath.includes('about.html')) {
+                link.classList.add('active-link');
             }
         });
+
+        // Logic B: Highlight based on Scroll (Platform / Impact) - Only runs on Index page
+        if (currentPath.endsWith('index.html') || currentPath.endsWith('/')) {
+            window.addEventListener('scroll', () => {
+                let sections = document.querySelectorAll('section');
+                
+                sections.forEach(sec => {
+                    let top = window.scrollY;
+                    let offset = sec.offsetTop - 150; 
+                    let height = sec.offsetHeight;
+                    let id = sec.getAttribute('id');
+                    
+                    if(top >= offset && top < offset + height) {
+                        // Remove highlight from Home/About first
+                        navLinks.forEach(link => link.classList.remove('active-link'));
+                        
+                        // Add highlight to the visible section
+                        let target = document.querySelector('.nav-links a[href*=' + id + ']');
+                        if(target) target.classList.add('active-link');
+                    }
+                });
+            });
+        }
     });
 </script>
 </body>
