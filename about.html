@@ -167,10 +167,32 @@
         <i class="fab fa-whatsapp"></i>
     </a>
 <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById("navLinks");
-            navLinks.classList.toggle("active");
-        }
-    </script>
+    // 1. Mobile Menu Toggle
+    function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+    }
+
+    // 2. Active Menu Highlighter (Scroll Spy)
+    window.addEventListener('scroll', () => {
+        let sections = document.querySelectorAll('section');
+        let navLinks = document.querySelectorAll('.nav-links a');
+        
+        sections.forEach(sec => {
+            let top = window.scrollY;
+            let offset = sec.offsetTop - 150; // Offset for fixed header
+            let height = sec.offsetHeight;
+            let id = sec.getAttribute('id');
+            
+            if(top >= offset && top < offset + height) {
+                navLinks.forEach(links => {
+                    links.classList.remove('active');
+                    let target = document.querySelector('.nav-links a[href*=' + id + ']');
+                    if(target) target.classList.add('active');
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
