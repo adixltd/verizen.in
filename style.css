@@ -13,7 +13,7 @@ body { background-color: var(--white); color: var(--dark); line-height: 1.6; }
 
 /* ==================== NAVIGATION (DESKTOP DEFAULT) ==================== */
 nav {
-    padding: 10px 0; /* Reduced padding for sleeker look */
+    padding: 5px 0; /* Reduced padding for sleeker look */
     position: fixed;
     width: 100%;
     top: 0;
@@ -38,7 +38,7 @@ nav {
     color: var(--primary);
 }
 
-.logo-img { height: 70px; width: auto; } /* Fixed Desktop Height */
+.logo-img { height: 90px; width: auto; } /* Fixed Desktop Height */
 
 /* Desktop Menu Layout */
 .nav-links {
@@ -208,7 +208,7 @@ footer { background: #0f172a; color: white; padding-top: 60px; margin-top: auto;
     
     /* Hide Desktop Logo Text */
     .logo-text { display: none; }
-    .logo-img { height: 50px; width: auto; object-fit: contain; }
+    .logo-img { height: 60px; width: auto; object-fit: contain; }
 
     /* Mobile Call Button */
     .mobile-call-btn { display: flex; align-items: center; gap: 6px; background-color: #004e92; color: white !important; padding: 8px 16px; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 0.85rem; box-shadow: 0 4px 10px rgba(0, 78, 146, 0.2); transition: 0.2s; }
@@ -218,7 +218,7 @@ footer { background: #0f172a; color: white; padding-top: 60px; margin-top: auto;
     .nav-links {
         display: none; /* Hidden Default */
         position: absolute;
-        top: 80px; /* Pushed down to clear header */
+        top: 90px; /* Pushed down to clear header */
         left: 0;
         width: 100%;
         background-color: white;
