@@ -898,3 +898,64 @@ footer {
     color: var(--secondary); /* Green on hover */
     transform: translateX(5px); /* Slide right slightly on hover */
 }
+/* ==================== MOBILE MENU SYSTEM ==================== */
+
+/* 1. Desktop: Hide the Hamburger */
+.hamburger {
+    display: none;
+    font-size: 1.5rem;
+    color: var(--primary);
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.mobile-nav-group {
+    display: none; /* Hidden on desktop */
+}
+
+/* 2. Mobile Rules */
+@media (max-width: 768px) {
+    
+    /* Show the Mobile Group (Call Button + Hamburger) */
+    .mobile-nav-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: block; /* Show hamburger on mobile */
+    }
+
+    /* The Dropdown Menu Styling */
+    .nav-links {
+        position: absolute;
+        top: 70px; /* Height of the navbar */
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column; /* Stack links vertically */
+        align-items: center;
+        gap: 25px;
+        padding: 30px 0;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+        
+        /* Animation Logic: Hidden by default */
+        transform: translateY(-150%);
+        transition: transform 0.4s ease;
+        z-index: -1; /* Puts it behind the nav bar until needed */
+        opacity: 0;
+    }
+
+    /* The Class added by JavaScript to show the menu */
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        z-index: 999;
+    }
+
+    /* Hide the navbar phone number inside the list (since we have the button) */
+    .nav-links .nav-phone {
+        display: none;
+    }
+}
