@@ -173,58 +173,68 @@
         navLinks.classList.toggle("active");
     }
 
-    // 2. Active Menu Highlighter
+    // 2. Intelligent Menu Highlighter (Works on Load & Scroll)
     document.addEventListener("DOMContentLoaded", function() {
         const navLinks = document.querySelectorAll('.nav-links a');
         const currentPath = window.location.pathname;
+        const currentHash = window.location.hash; // Gets #platform, #impact etc.
 
-        // === LOGIC A: File-Based Highlighting (Home / About) ===
-        navLinks.forEach(link => {
-            link.classList.remove('active-link'); // Clean slate
-            
-            const href = link.getAttribute('href');
+        // --- PART A: Handle "About Us" Page ---
+        if (currentPath.includes('about.html')) {
+            navLinks.forEach(link => link.classList.remove('active-link'));
+            document.querySelector('a[href="about.html"]').classList.add('active-link');
+            return; // Stop here if we are on About page
+        }
 
-            // CASE 1: HOME PAGE
-            // Checks if we are at root "/" OR "/index.html"
-            if (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('index.html'))) {
-                link.classList.add('active-link');
-            }
+        // --- PART B: Handle Home Page (Scroll Spy) ---
+        
+        // 1. Default to "Home" active
+        function setHomeActive() {
+            navLinks.forEach(link => link.classList.remove('active-link'));
+            document.querySelector('a[href="index.html"]').classList.add('active-link');
+        }
 
-            // CASE 2: ABOUT PAGE
-            if (href === 'about.html' && currentPath.includes('about.html')) {
-                link.classList.add('active-link');
-            }
-        });
+        // If no hash (#) is present, highlight Home immediately
+        if (!currentHash) {
+            setHomeActive();
+        }
 
-        // === LOGIC B: Scroll-Based Highlighting (Platform / Impact) ===
-        // Only run this if we are on the Home Page
-        if (currentPath.endsWith('/') || currentPath.endsWith('index.html')) {
-            window.addEventListener('scroll', () => {
-                let sections = document.querySelectorAll('section');
-                
-                sections.forEach(sec => {
-                    let top = window.scrollY;
-                    let offset = sec.offsetTop - 150; // Adjust for header height
-                    let height = sec.offsetHeight;
-                    let id = sec.getAttribute('id');
+        // 2. Setup IntersectionObserver (The Modern Way)
+        // This watches sections and triggers when 50% of them is visible
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.4 // Trigger when 40% of the section is visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Remove active class from all
+                    navLinks.forEach(link => link.classList.remove('active-link'));
                     
-                    if (top >= offset && top < offset + height) {
-                        // If we are scrolling a section, remove the "Home" highlight
-                        navLinks.forEach(link => link.classList.remove('active-link'));
-                        
-                        // Add highlight to the specific section link
-                        let target = document.querySelector('.nav-links a[href*=' + id + ']');
-                        if(target) target.classList.add('active-link');
+                    // Add active class to the visible section's link
+                    const id = entry.target.getAttribute('id');
+                    const targetLink = document.querySelector(`.nav-links a[href*="#${id}"]`);
+                    
+                    if (targetLink) {
+                        targetLink.classList.add('active-link');
                     }
-                });
-                
-                // If we scroll back to the very top, re-highlight Home
-                if (window.scrollY < 100) {
-                     navLinks.forEach(link => link.classList.remove('active-link'));
-                     document.querySelector('.nav-links a[href="index.html"]').classList.add('active-link');
                 }
             });
-        }
+        }, observerOptions);
+
+        // Start watching the sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // 3. Special Case: Detect if user scrolls back to very top (Home)
+        window.addEventListener('scroll', () => {
+            if (window.scrollY === 0) {
+                setHomeActive();
+            }
+        });
     });
 </script>
 </body>
