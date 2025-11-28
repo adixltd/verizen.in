@@ -871,6 +871,28 @@ footer {
     transition: 0.3s;
     display: inline-block;
 }
+/* --- MOBILE FIX FOR ABOUT PAGE --- */
+@media (max-width: 768px) {
+    /* 1. Push the header text down so it doesn't hit the Logo/Call Button */
+    .page-header {
+        padding-top: 120px !important; /* Increased padding specifically for mobile */
+        padding-bottom: 40px;
+    }
+
+    /* 2. Make the big headline slightly smaller on mobile so it fits better */
+    .page-header h1 {
+        font-size: 2rem !important; /* Reduces size from 3rem to 2rem */
+        line-height: 1.3;
+        margin-top: 10px;
+        padding: 0 15px; /* Adds side padding so text doesn't touch edges */
+    }
+
+    /* 3. Adjust the "Badge" (Our Story) to sit correctly */
+    .page-header .badge {
+        margin-top: 20px;
+        display: inline-block;
+    }
+}
 
 .footer-links-list a:hover {
     color: var(--secondary); /* Green on hover */
