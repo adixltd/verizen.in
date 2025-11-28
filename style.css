@@ -54,7 +54,7 @@ nav {
 }
 
 .logo-img {
-    height: 100px; /* Desktop Logo Size */
+    height: 100px;
     width: auto;
 }
 
@@ -75,6 +75,11 @@ nav {
 .active-link {
     color: var(--primary) !important;
     font-weight: 700 !important;
+}
+
+/* DEFAULT STATE: Hide Mobile Elements on Desktop */
+.hamburger, .mobile-nav-group, .mobile-call-btn {
+    display: none;
 }
 
 /* Buttons */
@@ -762,6 +767,20 @@ footer {
     .logo-text { display: none; }
     .logo-img { height: 55px; width: auto; object-fit: contain; }
     
+    /* Reveal Mobile Elements */
+    .mobile-nav-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: block;
+        font-size: 1.5rem;
+        color: var(--primary);
+        cursor: pointer;
+        margin-left: 15px;
+    }
+    
     .mobile-call-btn {
         display: flex;
         align-items: center;
@@ -780,19 +799,9 @@ footer {
     .mobile-call-btn:active { transform: scale(0.95); background-color: #003366; }
 
     /* MOBILE MENU SYSTEM */
-    .mobile-nav-group {
-        display: flex;
-        align-items: center;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    /* FIX: Menu Top Position updated to 100px so it doesn't cover Logo */
     .nav-links {
         position: absolute;
-        top: 100px;
+        top: 100px; /* Pushed down to clear header */
         left: 0;
         width: 100%;
         background: white;
@@ -851,8 +860,3 @@ footer {
     70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
     100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
 }
-
-/* Mobile defaults */
-.hamburger { display: none; font-size: 1.5rem; color: var(--primary); cursor: pointer; margin-left: 15px; }
-.mobile-nav-group { display: none; }
-.mobile-call-btn { display: none; }
