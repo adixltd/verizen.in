@@ -173,45 +173,56 @@
         navLinks.classList.toggle("active");
     }
 
-    // 2. Active Menu Highlighter (Dual Logic: URL + Scroll)
+    // 2. Active Menu Highlighter
     document.addEventListener("DOMContentLoaded", function() {
         const navLinks = document.querySelectorAll('.nav-links a');
         const currentPath = window.location.pathname;
 
-        // Logic A: Highlight based on Filename (Home / About Us)
+        // === LOGIC A: File-Based Highlighting (Home / About) ===
         navLinks.forEach(link => {
-            // Clears any hardcoded 'active-link' classes from HTML first
-            link.classList.remove('active-link'); 
+            link.classList.remove('active-link'); // Clean slate
             
-            // Checks if the link matches the current page URL
-            if (link.getAttribute('href') === 'index.html' && (currentPath.endsWith('index.html') || currentPath.endsWith('/'))) {
+            const href = link.getAttribute('href');
+
+            // CASE 1: HOME PAGE
+            // Checks if we are at root "/" OR "/index.html"
+            if (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('index.html'))) {
                 link.classList.add('active-link');
             }
-            if (link.getAttribute('href') === 'about.html' && currentPath.includes('about.html')) {
+
+            // CASE 2: ABOUT PAGE
+            if (href === 'about.html' && currentPath.includes('about.html')) {
                 link.classList.add('active-link');
             }
         });
 
-        // Logic B: Highlight based on Scroll (Platform / Impact) - Only runs on Index page
-        if (currentPath.endsWith('index.html') || currentPath.endsWith('/')) {
+        // === LOGIC B: Scroll-Based Highlighting (Platform / Impact) ===
+        // Only run this if we are on the Home Page
+        if (currentPath.endsWith('/') || currentPath.endsWith('index.html')) {
             window.addEventListener('scroll', () => {
                 let sections = document.querySelectorAll('section');
                 
                 sections.forEach(sec => {
                     let top = window.scrollY;
-                    let offset = sec.offsetTop - 150; 
+                    let offset = sec.offsetTop - 150; // Adjust for header height
                     let height = sec.offsetHeight;
                     let id = sec.getAttribute('id');
                     
-                    if(top >= offset && top < offset + height) {
-                        // Remove highlight from Home/About first
+                    if (top >= offset && top < offset + height) {
+                        // If we are scrolling a section, remove the "Home" highlight
                         navLinks.forEach(link => link.classList.remove('active-link'));
                         
-                        // Add highlight to the visible section
+                        // Add highlight to the specific section link
                         let target = document.querySelector('.nav-links a[href*=' + id + ']');
                         if(target) target.classList.add('active-link');
                     }
                 });
+                
+                // If we scroll back to the very top, re-highlight Home
+                if (window.scrollY < 100) {
+                     navLinks.forEach(link => link.classList.remove('active-link'));
+                     document.querySelector('.nav-links a[href="index.html"]').classList.add('active-link');
+                }
             });
         }
     });
