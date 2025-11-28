@@ -850,3 +850,26 @@ footer {
     }
     .page-header h1 { font-size: 2rem; }
 }
+
+/* --- FOOTER LINKS STYLING --- */
+.footer-links-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links-list li {
+    margin-bottom: 10px;
+}
+
+.footer-links-list a {
+    text-decoration: none;
+    color: #cbd5e1; /* Soft grey */
+    font-size: 0.95rem;
+    transition: 0.3s;
+    display: inline-block;
+}
+
+.footer-links-list a:hover {
+    color: var(--secondary); /* Green on hover */
+    transform: translateX(5px); /* Slide right slightly on hover */
+}
