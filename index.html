@@ -24,23 +24,28 @@
 </head>
 <body>
 
-    <nav>
+   <nav>
         <div class="container nav-container">
             <div class="logo">
-                <img src="assets/logo.PNG" alt="Varizen Logo" class="logo-img">
-                <span class="logo-text"></span>
+                <img src="assets/logo.png" alt="Varizen Logo" class="logo-img">
+                <span class="logo-text">VARIZEN</span>
             </div>
 
-            <a href="tel:+918280009390" class="mobile-call-btn">
-                <i class="fas fa-phone-alt"></i> <span>Call Us</span>
-            </a>
+            <div class="mobile-nav-group">
+                <a href="tel:+918280009390" class="mobile-call-btn">
+                    <i class="fas fa-phone-alt"></i> <span>Call Us</span>
+                </a>
 
-            <ul class="nav-links">
-                <li><a href="about.html" style="font-weight: 700; color: var(--primary);">About Us</a></li>
-                
-                <li><a href="#platform">Platform</a></li>
-                <li><a href="#impact">Impact</a></li>
-                <li><a href="#commercial">Industrial</a></li>
+                <div class="hamburger" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="index.html#platform">Platform</a></li>
+                <li><a href="index.html#impact">Impact</a></li>
                 <li><a href="tel:+918280009390" class="nav-phone"><i class="fas fa-phone-alt"></i> +91 828 000 9390</a></li>
                 <li><a href="#contact" class="btn-primary">Get a Free Audit</a></li>
             </ul>
